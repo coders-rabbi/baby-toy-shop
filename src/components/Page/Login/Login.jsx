@@ -1,30 +1,35 @@
 import { Link } from "react-router-dom";
 import loginPhoto from "../../../assets/login/login.svg"
-import { FaGithub, FaGoogle  } from "react-icons/fa";
-import { useContext } from "react";
+import { FaGithub, FaGoogle } from "react-icons/fa";
+import { useContext, useState } from "react";
 import { AuthContext } from "../../Provider/AuthProvider";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Login = () => {
-    const { signIn } = useContext(AuthContext);
+    const [error , setError] = useState('')
+    const { signIn, googleSingIn } = useContext(AuthContext);
 
     const handleLogin = event => {
         event.preventDefault();
         const form = event.target;
         const email = form.email.value;
         const password = form.password.value;
-        const loggedUser = { email: email, password: password}
+        const loggedUser = { email: email, password: password }
         console.log(loggedUser);
-        signIn()
-        .then(result =>{
-            const user = result.user;
-            console.log('loggedUser', user);
-        })
-        .catch(error => {
-            console.log(error.message);
-        })
-
-
+        signIn(email, password)
+            .then(result => {
+                const loggedUser = result.user;
+                console.log(loggedUser);
+                form.reset();
+                toast("Wow so easy!");
+            })
+            .catch(error => {
+                setError(error.message);            
+            })
     }
+
+
     return (
         <div>
             <div className="hero min-h-screen bg-base-200">
@@ -58,14 +63,16 @@ const Login = () => {
                         </form>
                         <div className='mx-auto flex gap-6 mb-4'>
                             <button className="btn btn-circle text-3xl"><FaGithub /></button>
-                            <button className="btn btn-circle text-3xl"><FaGoogle /></button>
+                            <button onClick={googleSingIn} className="btn btn-circle text-3xl"><FaGoogle /></button>
                         </div>
                         <div className='text-center mb-7'>
-                            <p>New to Car Doctor? <Link to="/register"><a className="label-text-alt link link-hover text-[#FF3811] text-xl">Register</a></Link></p>
+                            <p>New to Car Doctor? <Link to="/register">Register</Link></p>
                         </div>
                     </div>
                 </div>
             </div>
+
+            <ToastContainer />
         </div>
     );
 };
