@@ -1,12 +1,24 @@
-import React from 'react';
+import { Link } from "react-router-dom";
+import loginPhoto from "../../../assets/login/login.svg"
+import { FaGithub, FaGoogle  } from "react-icons/fa";
 
 const Login = () => {
+
+    const handleLogin = event => {
+        event.preventDefault();
+        const form = event.target;
+        const email = form.email.value;
+        const password = form.password.value;
+        const loggedUser = { email: email, password: password}
+        console.log(loggedUser);
+
+    }
     return (
         <div>
             <div className="hero min-h-screen bg-base-200">
                 <div className="hero-content justify-center">
                     <div className="text-center lg:text-left w-1/2">
-                        <img src={login} alt="" />
+                        <img src={loginPhoto} alt="" />
                     </div>
                     <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl">
                         <h1 className='text-center text-4xl font-bold mt-16'>Login</h1>
@@ -33,8 +45,7 @@ const Login = () => {
                             </div>
                         </form>
                         <div className='mx-auto flex gap-6 mb-4'>
-                            <button className="btn btn-circle text-3xl"><FaFacebook /></button>
-                            <button className="btn btn-circle text-2xl"><FaLinkedin /></button>
+                            <button className="btn btn-circle text-3xl"><FaGithub /></button>
                             <button className="btn btn-circle text-3xl"><FaGoogle /></button>
                         </div>
                         <div className='text-center mb-7'>
