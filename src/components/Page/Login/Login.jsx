@@ -1,8 +1,11 @@
 import { Link } from "react-router-dom";
 import loginPhoto from "../../../assets/login/login.svg"
 import { FaGithub, FaGoogle  } from "react-icons/fa";
+import { useContext } from "react";
+import { AuthContext } from "../../Provider/AuthProvider";
 
 const Login = () => {
+    const { signIn } = useContext(AuthContext);
 
     const handleLogin = event => {
         event.preventDefault();
@@ -11,12 +14,21 @@ const Login = () => {
         const password = form.password.value;
         const loggedUser = { email: email, password: password}
         console.log(loggedUser);
+        signIn()
+        .then(result =>{
+            const user = result.user;
+            console.log('loggedUser', user);
+        })
+        .catch(error => {
+            console.log(error.message);
+        })
+
 
     }
     return (
         <div>
             <div className="hero min-h-screen bg-base-200">
-                <div className="hero-content justify-center">
+                <div className="hero-content flex-col md:flex-row justify-center">
                     <div className="text-center lg:text-left w-1/2">
                         <img src={loginPhoto} alt="" />
                     </div>
