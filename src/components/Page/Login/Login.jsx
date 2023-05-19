@@ -8,7 +8,7 @@ import 'react-toastify/dist/ReactToastify.css';
 
 const Login = () => {
     const [error, setError] = useState('')
-    const { signIn, googleSingIn, user } = useContext(AuthContext);
+    const { signIn, googleSingIn, user, gitHubSingIn } = useContext(AuthContext);
 
     const handleLogin = event => {
         event.preventDefault();
@@ -63,7 +63,7 @@ const Login = () => {
                             </div>
                         </form>
                         <div className='mx-auto flex gap-6 mb-4'>
-                            <button className="btn btn-circle text-3xl"><FaGithub /></button>
+                            <button onClick={gitHubSingIn} className="btn btn-circle text-3xl"><FaGithub /></button>
                             <button onClick={googleSingIn} className="btn btn-circle text-3xl"><FaGoogle /></button>
                         </div>
                         <div className='text-center mb-7'>
