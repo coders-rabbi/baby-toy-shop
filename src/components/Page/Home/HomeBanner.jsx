@@ -17,8 +17,9 @@ const HomeBanner = () => {
                         <div className="space-y-7 text-white w-1/3">
                             <h1 className="text-6xl font-bold">New Arrivals Amazing Craft</h1>
                             <p className="">Latest baby product & toy collections</p>
-                            <div>
-                                <button className="btn bg-transparent border-[#FF3811] hover:bg-[#FF3811]">Latest Project</button>
+                            <div className="flex items-center gap-8">
+                                <button className="btn bg-transparent border-[#FF3811] hover:bg-[#FF3811]">Shop Now</button>
+                                <p className="text-white font-bold text-4xl">Get -30% off</p>
                             </div>
                         </div>
                     </div>
@@ -34,7 +35,7 @@ const HomeBanner = () => {
                             <h1 className="text-6xl font-bold">New Arrivals Amazing Craft</h1>
                             <p className="">Latest baby product & toy collections</p>
                             <div>
-                                <button className="btn bg-transparent border-[#FF3811] hover:bg-[#FF3811]">Latest Project</button>
+                                <button className="btn bg-transparent border-[#FF3811] hover:bg-[#FF3811]">Shop Now</button>
                             </div>
                         </div>
                     </div>
@@ -50,7 +51,7 @@ const HomeBanner = () => {
                             <h1 className="text-6xl font-bold">New Arrivals Amazing Craft</h1>
                             <p className="">Latest baby product & toy collections</p>
                             <div>
-                                <button className="btn bg-transparent border-[#FF3811] hover:bg-[#FF3811]">Latest Project</button>
+                                <button className="btn bg-transparent border-[#FF3811] hover:bg-[#FF3811]">Shop Now</button>
                             </div>
                         </div>
                     </div>
