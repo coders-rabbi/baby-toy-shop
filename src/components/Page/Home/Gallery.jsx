@@ -33,7 +33,7 @@ const Gallery = () => {
         }
     };
     return (
-        <div className='mt-24'>
+        <div className='mt-24 mb-24'>
             <h1 className='text-center text-5xl font-bold mb-16'>Products Gallery</h1>
             <div className='min-w-0 mx-auto text-center'>
                 <Carousel responsive={responsive}>
@@ -41,8 +41,8 @@ const Gallery = () => {
                         <div className="card card-compact w-96 bg-base-100 shadow-lg border mx-auto">
                             <figure><img className='w-48' src={gallery01} alt="Shoes" /></figure>
                             <div className="card-body">
-                                <h2 className="card-title">Shoes!</h2>
-                                <p>If a dog chews shoes whose shoes does he choose?</p>
+                                <h2 className="card-title">High Speed Car</h2>
+                                <p>This Super Rideon bike by Toyhouse is safe and easy to operate?</p>
                                 <div className="card-actions justify-end">
                                     <button className="btn btn-primary">Buy Now</button>
                                 </div>
