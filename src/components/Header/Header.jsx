@@ -1,6 +1,6 @@
 import { useContext } from 'react';
 import { Link, Navigate } from 'react-router-dom';
-import logo from "../../assets/babyLogo.svg"
+import logo from "../../assets/logo.png"
 import { AuthContext } from '../Provider/AuthProvider';
 
 const Header = () => {
@@ -46,9 +46,8 @@ const Header = () => {
                     </ul>
                 </div>
                 <div>
-                    <a className="btn btn-ghost normal-case text-xl">
-                        <img className='w-24' src={logo} alt="" />
-                    </a></div>
+                    <img className='w-36' src={logo} alt="" />
+                </div>
             </div>
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal px-1">
