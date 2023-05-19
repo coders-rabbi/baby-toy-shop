@@ -7,8 +7,8 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 const Login = () => {
-    const [error , setError] = useState('')
-    const { signIn, googleSingIn } = useContext(AuthContext);
+    const [error, setError] = useState('')
+    const { signIn, googleSingIn, user } = useContext(AuthContext);
 
     const handleLogin = event => {
         event.preventDefault();
@@ -22,10 +22,11 @@ const Login = () => {
                 const loggedUser = result.user;
                 console.log(loggedUser);
                 form.reset();
-                toast("Wow so easy!");
+                toast("Login Successful!");
+
             })
             .catch(error => {
-                setError(error.message);            
+                setError(error.message);
             })
     }
 
@@ -71,7 +72,6 @@ const Login = () => {
                     </div>
                 </div>
             </div>
-
             <ToastContainer />
         </div>
     );

@@ -1,5 +1,5 @@
 import { useContext } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Navigate } from 'react-router-dom';
 import logo from "../../assets/babyLogo.svg"
 import { AuthContext } from '../Provider/AuthProvider';
 
@@ -19,16 +19,18 @@ const Header = () => {
         <li><Link>My Toys</Link></li>
         <li><Link>Add Toy</Link></li>
         <li><Link to="/blog">Blog</Link></li>
-
-        <li><Link to="/register">Register</Link></li>
         <div>
             {
                 user ?
-                    <button onClick={handleLogOut} className="btn btn-error">LogOut</button>
-
+                    <>
+                        <button onClick={handleLogOut} className="btn btn-error">LogOut</button>
+                        <Navigate to="/"></Navigate>
+                    </>
                     :
-
-                    <li><Link to="/login">Login</Link></li>
+                    <div className='md:flex'>
+                        <li><Link to="/login">Login</Link></li>
+                        <li><Link to="/register">Register</Link></li>
+                    </div>
             }
         </div>
     </>
@@ -54,8 +56,11 @@ const Header = () => {
                 </ul>
             </div>
             <div className="navbar-end">
-                { user ?
-                    <img className='bg-transparent border-2 border-logo-color h-20 w-20 rounded-full' title={user?.displayName} src={user?.photoURL} alt="" /> : <></>
+                {user ?
+                    <>
+                        <img className='bg-transparent border-2 border-logo-color h-20 w-20 rounded-full' title={user?.displayName} src={user?.photoURL} alt="" />
+                    </>
+                    : <></>
                 }
             </div>
         </div>
