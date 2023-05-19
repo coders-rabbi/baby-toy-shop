@@ -1,7 +1,3 @@
-// import banner01 from "../../../assets/banner/slider1.jpg"
-// import banner02 from "../../../assets/banner/slider2.jpg"
-// import banner03 from "../../../assets/banner/slider3.jpg"
-// import banner04 from "../../../assets/banner/slider4.jpg"
 import banner01 from "../../../assets/banner/slider1.jpg"
 import banner02 from "../../../assets/banner/slider2.jpg"
 import banner03 from "../../../assets/banner/slider3.png"

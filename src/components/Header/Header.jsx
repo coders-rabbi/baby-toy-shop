@@ -15,16 +15,16 @@ const Header = () => {
 
     const navItems = <>
         <li><Link to="/">Home</Link></li>
-        <li><Link>All Toys</Link></li>
-        <li><Link>My Toys</Link></li>
-        <li><Link>Add Toy</Link></li>
+        <li><Link to="all-toys">All Toys</Link></li>
+        <li><Link to="my-toy">My Toys</Link></li>
+        <li><Link to="add-toy">Add Toy</Link></li>
         <li><Link to="/blog">Blog</Link></li>
         <div>
             {
                 user ?
                     <>
                         <button onClick={handleLogOut} className="btn btn-error">LogOut</button>
-                        <Navigate to="/"></Navigate>
+                        
                     </>
                     :
                     <div className='md:flex'>

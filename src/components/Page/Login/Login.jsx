@@ -23,7 +23,7 @@ const Login = () => {
                 console.log(loggedUser);
                 form.reset();
                 toast("Login Successful!");
-
+                <Navigate to="/"></Navigate>
             })
             .catch(error => {
                 setError(error.message);
