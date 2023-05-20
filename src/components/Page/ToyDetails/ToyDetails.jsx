@@ -1,10 +1,13 @@
 import React from 'react';
 import { useLoaderData } from 'react-router-dom';
+import { useHeader } from '../../../../useTitle';
 
 const ToyDetails = () => {
     const singleToy = useLoaderData();
     console.log(singleToy);
     const { picture_url, name, selleremail, sellername, price, rating, quantity, detail_description } = singleToy;
+
+    useHeader("Toy_Details - Baby Toy Shop")
     return (
         <div>
             <div className='md:flex shadow-xl mb-10 mt-10 border rounded-2xl'>

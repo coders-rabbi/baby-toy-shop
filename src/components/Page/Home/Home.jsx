@@ -1,13 +1,16 @@
 import React from 'react';
 import HomeBanner from './HomeBanner';
 import ShopByCetagory from './ShopByCetagory';
-import Gallery from './Gallery';
+import Gallery from './PopularProducts';
+import PopularProducts from './PopularProducts';
+import { useHeader } from '../../../../useTitle';
 
 const Home = () => {
+    useHeader("Home - Baby Toy Shop")
     return (
         <div>
             <HomeBanner></HomeBanner>
-            <Gallery></Gallery>
+            <PopularProducts></PopularProducts>
             <ShopByCetagory></ShopByCetagory>
         </div>
     );

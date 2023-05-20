@@ -6,9 +6,12 @@ import { AuthContext } from "../../Provider/AuthProvider";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { updateProfile } from 'firebase/auth';
+import { useHeader } from "../../../../useTitle";
 
 const Register = () => {
     const { createUser } = useContext(AuthContext);
+
+    useHeader("Register - Baby Toy Shop")
 
     const handleRegister = event => {
         event.preventDefault();

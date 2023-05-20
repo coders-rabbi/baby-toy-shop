@@ -2,10 +2,15 @@
 import toybanner from "../../../assets/addToyBanner.jpg"
 import { useLoaderData } from 'react-router-dom';
 import SingleToy from "./SingleToy";
+import { useHeader } from "../../../../useTitle";
 
 const AllToys = () => {
     const allToys = useLoaderData([]);
     console.log(allToys);
+
+    useHeader("All_Toys - Baby Toy Shop")
+
+
     return (
         <div>
             <div id="slide1" className="carousel-item relative w-full mb-20">

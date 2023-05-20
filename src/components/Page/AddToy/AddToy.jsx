@@ -1,28 +1,46 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { AuthContext } from '../../Provider/AuthProvider';
+import Swal from 'sweetalert2';
+import { useHeader } from '../../../../useTitle';
 
 const AddToy = () => {
-
+    const { user } = useContext(AuthContext);
+    useHeader("Add_Toy - Baby Toy Shop")
 
     const handleAddToy = event => {
         event.preventDefault();
         const form = event.target;
-        const toyName = form.toyName.value;
-        const sellerName = form.sellerName.value;
-        const photoUrl = form.photoUrl.value;
-        const sellerEmail = form.sellerEmail.value;
-        const subCategory = form.subCategory.value;
+        const name = form.toyName.value;
+        const sellername = form.sellerName.value;
+        const picture_url = form.photoUrl.value;
+        const selleremail = form.sellerEmail.value;
+        const category = form.category.value;
         const price = form.price.value;
         const rating = form.rating.value;
-        const availableQuantity = form.availableQuantity.value;
-        const description = form.description.value;
+        const quantity = form.availableQuantity.value;
+        const detail_description = form.description.value;
         const addedToy = {
-            toyName, sellerName, sellerEmail, photoUrl, subCategory, price, rating, availableQuantity, description
+            name, sellername, selleremail, picture_url, category, price, rating, quantity, detail_description
         }
         console.log(addedToy);
 
+        fetch('http://localhost:5000/alltoys', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(addedToy)
+        })
+            .then(res => res.json())
+            .then(data => {
+                Swal.fire(
+                    'Added Products!',
+                    'Your Product has been Added.',
+                    'success'
+                )
+                form.reset();
+            })
     }
-
-
 
 
     return (
@@ -35,49 +53,54 @@ const AddToy = () => {
                         <label className="label">
                             <span className="label-text">Toy Name</span>
                         </label>
-                        <input type="text" name='toyName' placeholder="toy name" className="input input-bordered"  required/>
+                        <input type="text" name='toyName' placeholder="toy name" className="input input-bordered" required />
                     </div>
                     <div className="form-control">
                         <label className="label">
                             <span className="label-text">Seller Name</span>
                         </label>
-                        <input type="text" name='sellerName' placeholder="seller name" className="input input-bordered"  required/>
+                        <input type="text" name='sellerName' placeholder="seller name" className="input input-bordered" required />
                     </div>
                     <div className="form-control">
                         <label className="label">
                             <span className="label-text">Photo URL</span>
                         </label>
-                        <input type="text" name='photoUrl' placeholder="photo url" className="input input-bordered"  required/>
+                        <input type="text" name='photoUrl' placeholder="photo url" className="input input-bordered" required />
                     </div>
                     <div className="form-control">
                         <label className="label">
                             <span className="label-text">Seller Email</span>
                         </label>
-                        <input type="email" name='sellerEmail' placeholder="seller email" className="input input-bordered" re required/>
+                        <input type="email" name='sellerEmail' value={user.email} placeholder="seller email" className="input input-bordered" re required />
                     </div>
-                    <div className="form-control">
+                    <div className="form-control w-full">
                         <label className="label">
-                            <span className="label-text">Sub Category</span>
+                            <span className="label-text">Select your Cetagory</span>
                         </label>
-                        <input type="text" name='subCategory' placeholder="sub category" className="input input-bordered"  required/>
+                        <select name='category' className="select select-bordered">
+                            <option disabled selected>Select</option>
+                            <option>Cars</option>
+                            <option>Drone</option>
+                            <option>Bike</option>
+                        </select>
                     </div>
                     <div className="form-control">
                         <label className="label">
                             <span className="label-text">Price</span>
                         </label>
-                        <input type="text" name='price' placeholder="price" className="input input-bordered"  required/>
+                        <input type="text" name='price' placeholder="price" className="input input-bordered" required />
                     </div>
                     <div className="form-control">
                         <label className="label">
                             <span className="label-text">Rating</span>
                         </label>
-                        <input type="text" name='rating' placeholder="rating" className="input input-bordered"  required/>
+                        <input type="text" name='rating' placeholder="rating" className="input input-bordered" required />
                     </div>
                     <div className="form-control">
                         <label className="label">
                             <span className="label-text">Available quantity</span>
                         </label>
-                        <input type="text" name='availableQuantity' placeholder="available-quantity" className="input input-bordered"  required/>
+                        <input type="text" name='availableQuantity' placeholder="available-quantity" className="input input-bordered" required />
                     </div>
                 </div>
                 <div className="form-control px-10">

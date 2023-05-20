@@ -16,16 +16,17 @@ const Header = () => {
     const navItems = <>
         <li><Link to="/">Home</Link></li>
         <li><Link to="all-toys">All Toys</Link></li>
-        <li><Link to="my-toy">My Toys</Link></li>
         <li><Link to="add-toy">Add Toy</Link></li>
         <li><Link to="/blog">Blog</Link></li>
         <div>
             {
                 user ?
-                    <>
+                    <div className='md:flex'>
+                        <li><Link to="my-toy">My Toys</Link></li>
                         <button onClick={handleLogOut} className="btn btn-error">LogOut</button>
-                        
-                    </>
+
+
+                    </div>
                     :
                     <div className='md:flex'>
                         <li><Link to="/login">Login</Link></li>

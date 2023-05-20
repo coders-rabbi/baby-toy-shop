@@ -6,7 +6,7 @@ const Footer = () => {
             <footer className="footer p-10 bg-base-200 text-base-content">
                 <div>
                     <img className='w-36' src={logo} alt="" />
-                    <p>ACME Industries Ltd.<br />Providing reliable tech since 1992</p>
+                    <p>The best chooice for you!<br /><p>Alreserved© by baby toy shop</p></p>
                 </div>
                 <div>
                     <span className="footer-title">Services</span>

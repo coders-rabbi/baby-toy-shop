@@ -3,19 +3,20 @@ import { useLoaderData } from 'react-router-dom';
 import { AuthContext } from '../../Provider/AuthProvider';
 import mytoybanner from "../../../assets/banner/mytoy.jpg"
 import MySingleToy from './MySingleToy';
+import { useHeader } from '../../../../useTitle';
 
 const MyToys = () => {
     const { user } = useContext(AuthContext);
-    const [toys, setToys] = useState([]);
-    console.log(toys);
+    const [allToys, setAllToys] = useState([]);
+    useHeader("My_Toy - Baby Toy Shop")
 
     useEffect(() => {
         fetch(`http://localhost:5000/mytoys/${user?.email}`)
             .then(res => res.json())
-            .then(data => setToys(data))
+            .then(data => setAllToys(data))
     }, [])
 
-
+    
 
     return (
         <div>
@@ -41,9 +42,11 @@ const MyToys = () => {
                             <th className="bg-slate-200">Update</th>
                         </tr>
                         {
-                            toys.map(toy => <MySingleToy
+                            allToys.map(toy => <MySingleToy
                             key={toy._id}
-                            toy={toy}
+                            toys={toy}
+                            allToys={allToys}
+                            setAllToys={setAllToys}
                             ></MySingleToy>)
                         }
                     </thead>

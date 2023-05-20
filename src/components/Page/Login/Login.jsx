@@ -5,10 +5,15 @@ import { useContext, useState } from "react";
 import { AuthContext } from "../../Provider/AuthProvider";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { useHeader } from "../../../../useTitle";
 
 const Login = () => {
     const [error, setError] = useState('')
     const { signIn, googleSingIn, user, gitHubSingIn } = useContext(AuthContext);
+
+
+    useHeader("Login - Baby Toy Shop")
+
 
     const handleLogin = event => {
         event.preventDefault();

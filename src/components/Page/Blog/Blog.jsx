@@ -1,6 +1,8 @@
 import React from 'react';
+import { useHeader } from '../../../../useTitle';
 
 const Blog = () => {
+    useHeader("Blog - Baby Toy Shop")
     return (
         <div>
             <div className='container mx-auto grid md:grid-cols-2 gap-6 mt-6 mb-10'>
