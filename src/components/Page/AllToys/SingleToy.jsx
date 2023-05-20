@@ -10,7 +10,6 @@ const SingleToy = ({ toy }) => {
                 <table className="table w-full">
 
                     <tbody>
-                        {/* row 1 */}
                         <tr className='border grid grid-cols-5  justify-items-center items-center'>
                             <td>
                                 <img className='w-14' src={picture_url} alt="" />

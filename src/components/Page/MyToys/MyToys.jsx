@@ -1,9 +1,54 @@
-import React from 'react';
+import { useContext, useEffect, useState } from 'react';
+import { useLoaderData } from 'react-router-dom';
+import { AuthContext } from '../../Provider/AuthProvider';
+import mytoybanner from "../../../assets/banner/mytoy.jpg"
+import MySingleToy from './MySingleToy';
 
 const MyToys = () => {
+    const { user } = useContext(AuthContext);
+    const [toys, setToys] = useState([]);
+    console.log(toys);
+
+    useEffect(() => {
+        fetch(`http://localhost:5000/mytoys/${user?.email}`)
+            .then(res => res.json())
+            .then(data => setToys(data))
+    }, [])
+
+
+
     return (
         <div>
-            <h1>This is my toys page!</h1>
+            {/* my toy banner */}
+            <div id="slide1" className="carousel-item relative w-full mb-20">
+                <img src={mytoybanner} className="max-w-7xl w-full h-[300px] rounded-lg" />
+                <div className="absolute flex items-center gap-6 bg-[#151515a3] h-full w-full rounded-lg">
+                    <div className="space-y-7 text-white w-full">
+                        <h1 className="text-6xl font-bold text-center">My Toys</h1>
+                    </div>
+                </div>
+            </div>
+
+            <div className='mb-20'>
+                <table className="table w-full">
+                    <thead>
+                        <tr className="grid grid-cols-6 justify-items-center bg-slate-200">
+                            <th className="bg-slate-200">delete</th>
+                            <th className="bg-slate-200">picture</th>
+                            <th className="bg-slate-200">Name</th>
+                            <th className="bg-slate-200">Seller</th>
+                            <th className="bg-slate-200">Quantity</th>
+                            <th className="bg-slate-200">Update</th>
+                        </tr>
+                        {
+                            toys.map(toy => <MySingleToy
+                            key={toy._id}
+                            toy={toy}
+                            ></MySingleToy>)
+                        }
+                    </thead>
+                </table>
+            </div>
         </div>
     );
 };

@@ -1,10 +1,13 @@
+import { useState } from 'react';
 import { Tab, TabList, TabPanel, Tabs } from 'react-tabs';
 import 'react-tabs/style/react-tabs.css'
 
 const ShopByCetagory = () => {
+
+    const [activeTab, setActiveTab] = useState("remote");
     return (
         <div>
-            <Tabs forceRenderTabPanel defaultIndex={1}>
+            {/* <Tabs forceRenderTabPanel defaultIndex={1}>
                 <TabList>
                     <Tab>Mini Cars</Tab>
                     <Tab>Bike</Tab>
@@ -111,7 +114,24 @@ const ShopByCetagory = () => {
                         </TabPanel>
                     </Tabs>
                 </TabPanel>
-            </Tabs>
+            </Tabs> */}
+            {/* <div className="tabs d-flex justify-content-center align-items-center">
+                <div
+                    onClick={() => handleTabClick("remote")}
+                    className={`tab  tab2 remote ${activeTab == "remote" ? " bg-danger text-white" : ""
+                        }`}
+                >
+                    Remote
+                </div>
+                <div
+                    onClick={() => handleTabClick("offline")}
+                    className={`tab  tab2 Offline ${activeTab == "offline" ? " bg-danger text-white" : ""
+                        }`}
+                >
+                    Offline
+                </div>
+            </div> */}
+
         </div>
     );
 };
