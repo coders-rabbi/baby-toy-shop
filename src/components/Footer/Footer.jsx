@@ -1,4 +1,5 @@
 import logo from "../../assets/logo.png"
+import { FaMailBulk, FaPhone, FaHome, FaFacebook, FaLinkedin, FaGithub } from 'react-icons/fa';
 
 const Footer = () => {
     return (
@@ -7,6 +8,17 @@ const Footer = () => {
                 <div>
                     <img className='w-36' src={logo} alt="" />
                     <p>The best chooice for you!<br /><p>Alreserved© by baby toy shop</p></p>
+                    <div className="text-2xl flex gap-5">
+                        <a href="https://www.facebook.com/codersrabbi">
+                            <FaFacebook />
+                        </a>
+                        <a href="https://www.linkedin.com/in/coders-rabbi/">
+                            <FaLinkedin />
+                        </a>
+                        <a href="https://github.com/coders-rabbi">
+                            <FaGithub />
+                        </a>
+                    </div>
                 </div>
                 <div>
                     <span className="footer-title">Services</span>
@@ -23,10 +35,10 @@ const Footer = () => {
                     <a className="link link-hover">Press kit</a>
                 </div>
                 <div>
-                    <span className="footer-title">Legal</span>
-                    <a className="link link-hover">Terms of use</a>
-                    <a className="link link-hover">Privacy policy</a>
-                    <a className="link link-hover">Cookie policy</a>
+                    <span className="footer-title">Address</span>
+                    <a className="link link-hover flex items-center gap-3 text-xl"><FaHome /> Mirpur-14, Dhaka</a>
+                    <a className="link link-hover flex items-center gap-3 text-xl"><FaPhone /> 01303320413</a>
+                    <a className="link link-hover flex items-center gap-3 text-xl"><FaMailBulk /> codersrabbi@gmail.com</a>
                 </div>
             </footer>
         </div>

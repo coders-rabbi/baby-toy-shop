@@ -10,8 +10,7 @@ import gallery07 from "../../../assets/gallery/img07.jpg"
 import gallery08 from "../../../assets/gallery/img08.jpeg"
 import gallery09 from "../../../assets/gallery/img09.jpeg"
 
-
-const PopularProducts = () => {
+const TopSell = () => {
     const responsive = {
         superLargeDesktop: {
             // the naming can be any, depends on you.
@@ -158,4 +157,13 @@ const PopularProducts = () => {
     );
 };
 
-export default PopularProducts;
+export default TopSell;
+
+
+
+
+
+
+
+
+
