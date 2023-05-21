@@ -15,7 +15,7 @@ const ShopByCetagory = () => {
     }
 
     useEffect(() => {
-        fetch(`http://localhost:5000/category/${cetagory}`)
+        fetch(`https://baby-toy-shop-server-coders-rabbi.vercel.app/category/${cetagory}`)
             .then(res => res.json())
             .then(data => {
                 setProducts(data)

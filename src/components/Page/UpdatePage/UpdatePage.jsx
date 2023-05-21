@@ -21,7 +21,7 @@ const UpdatePage = () => {
             price, quantity, description
         }
         console.log(updateProdct);
-        fetch(`http://localhost:5000/alltoys/${_id}`, {
+        fetch(`https://baby-toy-shop-server-coders-rabbi.vercel.app/alltoys/${_id}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'

@@ -40,9 +40,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/my-toy",
-        element: <PrivateRoute><MyToys></MyToys></PrivateRoute>
-
-        // loader: ({ params }) => fetch(`http://localhost:5000/mytoys/${params.email}`)
+        element: <PrivateRoute><MyToys></MyToys></PrivateRoute>,
 
       },
       {
@@ -52,12 +50,12 @@ const router = createBrowserRouter([
       {
         path: "/toydetails/:id",
         element: <PrivateRoute><ToyDetails></ToyDetails></PrivateRoute>,
-        loader: ({ params }) => fetch(`http://localhost:5000/alltoys/${params.id}`)
+        loader: ({ params }) => fetch(`https://baby-toy-shop-server-coders-rabbi.vercel.app/alltoys/${params.id}`)
       },
       {
         path: "/update/:id",
         element: <UpdatePage></UpdatePage>,
-        loader: ({ params }) => fetch(`http://localhost:5000/alltoys/${params.id}`)
+        loader: ({ params }) => fetch(`https://baby-toy-shop-server-coders-rabbi.vercel.app/alltoys/${params.id}`)
       }
     ]
   },

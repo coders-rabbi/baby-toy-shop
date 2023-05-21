@@ -24,7 +24,7 @@ const AddToy = () => {
         }
         console.log(addedToy);
 
-        fetch('http://localhost:5000/alltoys', {
+        fetch('https://baby-toy-shop-server-coders-rabbi.vercel.app/alltoys', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

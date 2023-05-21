@@ -17,7 +17,7 @@ const AllToys = () => {
     useHeader("All_Toys - Baby Toy Shop")
 
     const handleSearch = () => {
-        fetch(`http://localhost:5000/search/${searchText}`)
+        fetch(`https://baby-toy-shop-server-coders-rabbi.vercel.app/search/${searchText}`)
             .then((res) => res.json())
             .then((data) => {
                 console.log(data);
@@ -26,7 +26,7 @@ const AllToys = () => {
     };
 
     useEffect(() => {
-        fetch('http://localhost:5000/alltoys')
+        fetch('https://baby-toy-shop-server-coders-rabbi.vercel.app/alltoys')
             .then(res => res.json())
             .then(data => setToys(data))
     }, [])

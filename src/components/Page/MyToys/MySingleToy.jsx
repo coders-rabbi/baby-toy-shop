@@ -17,18 +17,13 @@ const MySingleToy = ({ toys, setAllToys, allToys }) => {
             confirmButtonText: "Yes, delete it!",
         }).then((result) => {
             if (result.isConfirmed) {
-                //   Swal.fire(
-                //     'Deleted!',
-                //     'Your file has been deleted.',
-                //     'success'
-                //   )
-                fetch(`http://localhost:5000/alltoys/${id}`, {
+                fetch(`https://baby-toy-shop-server-coders-rabbi.vercel.app/alltoys/${id}`, {
                     method: "DELETE"
                 })
                     .then((res) => res.json())
                     .then((data) => {
                         if (data.deletedCount > 0) {
-                            Swal.fire("Deleted!", "Coffee deleted.", "success");
+                            Swal.fire("Deleted!", "Products deleted.", "success");
                             const remmaining = allToys.filter(toy => toy._id !== id);
                             setAllToys(remmaining)
 

@@ -11,7 +11,7 @@ const MyToys = () => {
     useHeader("My_Toy - Baby Toy Shop")
 
     useEffect(() => {
-        fetch(`http://localhost:5000/mytoys/${user?.email}`)
+        fetch(`https://baby-toy-shop-server-coders-rabbi.vercel.app/mytoys/${user?.email}`)
             .then(res => res.json())
             .then(data => setAllToys(data))
     }, [])
