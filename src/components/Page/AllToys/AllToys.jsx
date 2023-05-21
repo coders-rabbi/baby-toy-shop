@@ -3,13 +3,33 @@ import toybanner from "../../../assets/addToyBanner.jpg"
 import { useLoaderData } from 'react-router-dom';
 import SingleToy from "./SingleToy";
 import { useHeader } from "../../../../useTitle";
+import { FaSearch } from 'react-icons/fa';
+import { useEffect, useState } from "react";
 
 const AllToys = () => {
-    const allToys = useLoaderData([]);
-    console.log(allToys);
+    const [searchText, setSearchText] = useState("");
+    const [toys, setToys] = useState([]);
+    const [visible, setVisible] = useState([20]);
+    const showall = () => {
+        setVisible((perval) => perval + 10);
+    }
 
     useHeader("All_Toys - Baby Toy Shop")
 
+    const handleSearch = () => {
+        fetch(`http://localhost:5000/search/${searchText}`)
+            .then((res) => res.json())
+            .then((data) => {
+                console.log(data);
+                setToys(data);
+            });
+    };
+
+    useEffect(() => {
+        fetch('http://localhost:5000/alltoys')
+            .then(res => res.json())
+            .then(data => setToys(data))
+    }, [])
 
     return (
         <div>
@@ -33,11 +53,20 @@ const AllToys = () => {
                         </tr>
                     </thead>
                 </table>
+                <div className='flex justify-center items-center py-10'>
+                    <input
+                        onChange={(e) => setSearchText(e.target.value)}
+                        type="text" placeholder="Type here" className="input input-bordered input-primary w-full max-w-xs" />
+                    <button onClick={handleSearch} class="btn btn-primary ms-4"><FaSearch></FaSearch> Search</button>
+                </div>
                 {
-                    allToys.map(toy => <SingleToy
+                    toys.slice(0, visible).map(toy => <SingleToy
                         toy={toy}
                     ></SingleToy>)
                 }
+                <div className="showAll flex justify-center my-6">
+                    <button className='btn btn-primary"' onClick={showall}>Show All Toy </button>
+                </div>
             </div>
         </div>
     );

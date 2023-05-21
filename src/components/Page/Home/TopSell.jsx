@@ -31,7 +31,7 @@ const TopSell = () => {
         }
     };
     return (
-        <div className='mt-24 mb-24'>
+        <div data-aos="zoom-in-up" className='mt-24 mb-24'>
             <h1 className='text-center text-5xl font-bold mb-16'>Popular Products</h1>
             <div className='min-w-0 mx-auto text-center'>
                 <Carousel responsive={responsive}>

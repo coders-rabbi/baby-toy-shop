@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 const SingleToy = ({ toy }) => {
-    console.log(toy);
+    // console.log(toy);
     const { _id, picture_url, name, sellername, cetagory, price } = toy;
     return (
         <div>

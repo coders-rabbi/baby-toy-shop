@@ -77,7 +77,7 @@ const AddToy = () => {
                         <label className="label">
                             <span className="label-text">Select your Cetagory</span>
                         </label>
-                        <select name='category' className="select select-bordered">
+                        <select name='category' className="select select-bordered" required>
                             <option disabled selected>Select</option>
                             <option>Cars</option>
                             <option>Drone</option>
